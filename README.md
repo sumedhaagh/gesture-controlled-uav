@@ -16,6 +16,24 @@ The goal is to enable contactless UAV control using natural hand gestures.
 - Real-time webcam gesture detection
 
 
+## Model Architecture
+
+This project uses a **Vision Transformer (ViT-B/16)** architecture for gesture classification.
+
+Unlike traditional Convolutional Neural Networks (CNNs), Vision Transformers process images as a sequence of patches and learn global relationships using self-attention mechanisms. This allows the model to capture long-range spatial dependencies and complex visual patterns that are useful for recognizing hand gestures.
+
+The model is initialized with **ImageNet pretrained weights** and fine-tuned on a custom hand gesture dataset collected specifically for UAV control gestures.
+
+Key details:
+
+* Backbone: Vision Transformer (ViT-B/16)
+* Input Resolution: 224 × 224
+* Loss Function: CrossEntropyLoss
+* Optimizer: AdamW
+* Learning Rate Scheduler: ReduceLROnPlateau
+* Framework: PyTorch
+
+
 ## Project Structure
 
 gesture-controlled-uav
@@ -65,3 +83,5 @@ python train_vit.py
 Run:
 
 python webcam_inference.py
+
+
